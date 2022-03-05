@@ -9,4 +9,3 @@ class ShipManagerConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
     name = 'coding_challenge.ship_manager'
     verbose_name = _("Ship Manager")
-

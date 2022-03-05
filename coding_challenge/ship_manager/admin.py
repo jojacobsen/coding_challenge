@@ -1,5 +1,4 @@
 from django.contrib import admin
-from django.contrib.auth import admin as auth_admin
 
 from coding_challenge.ship_manager.models import Ship
 

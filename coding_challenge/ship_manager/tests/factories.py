@@ -1,5 +1,3 @@
-from typing import Any, Sequence
-
 from coding_challenge.ship_manager.models import Ship
 from factory.django import DjangoModelFactory
 import datetime

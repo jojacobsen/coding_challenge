@@ -5,6 +5,7 @@ from coding_challenge.users.tests.factories import UserFactory
 from coding_challenge.ship_manager.models import Ship
 from coding_challenge.ship_manager.tests.factories import ShipFactory
 
+
 @pytest.fixture(autouse=True)
 def media_storage(settings, tmpdir):
     settings.MEDIA_ROOT = tmpdir.strpath

@@ -1,4 +1,3 @@
-from django.http import HttpResponse
 from django.views.generic import ListView
 from coding_challenge.ship_manager.models import Ship
 
