@@ -1,12 +1,43 @@
 {% extends "base.html" %}
 
+{% block extra_css %}
+  <style>
+    table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    td, th {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+    }
+
+    tr:nth-child(even) {
+      background-color: #dddddd;
+    }
+  </style>
+{% endblock extra_css %}
+
 {% block content %}
   <h1>List of available Ships:</h1>
-  <ul>
+  <table>
+    <tr>
+      <th>Code</th>
+      <th>Name</th>
+      <th>Length</th>
+      <th>Width</th>
+    </tr>
     {% for ship in object_list %}
-      <li>{{ ship.code }} - {{ ship.name }}</li>
+      <tr>
+        <td>{{ ship.code }}</td>
+        <td>{{ ship.name }}</td>
+        <td>{{ ship.length }}m</td>
+        <td>{{ ship.width }}m</td>
+      </tr>
     {% empty %}
-      <li>No ships in your harbour yet.</li>
+      <tr><td>No ships in your harbour yet.</td><td></td><td></td><td></td></tr>
     {% endfor %}
-  </ul>
+  </table>
 {% endblock content %}

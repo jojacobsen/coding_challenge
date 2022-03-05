@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
-  <h1>REST API information:</h1>
+  <h1>REST API information</h1>
   {% if not request.user.is_authenticated %}
     <b>--> <a href="{% url 'account_login' %}?next={% url 'api-info' %}">login required</a> <--</b>
     <br>
@@ -11,10 +11,10 @@
       <a href="{% url 'api:api-root' %}">Interactive API View</a>
     </li>
     <li>
-      <a href="{% url 'api-docs' %}">Swagger API Documentation</a>
+      <a href="{% url 'api-docs' %}">Swagger API Documentation</a> (admin only)
     </li>
     <li>
-      <a href="{% url 'api-schema' %}">Download API Schema</a>
+      <a href="{% url 'api-schema' %}">Download API Schema</a> (admin only)
     </li>
   </ul>
 {% endblock content %}
