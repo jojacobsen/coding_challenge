@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>List of available Ships:</h1>
+  <ul>
+    {% for ship in object_list %}
+      <li>{{ ship.code }} - {{ ship.name }}</li>
+    {% empty %}
+      <li>No ships in your harbour yet.</li>
+    {% endfor %}
+  </ul>
+{% endblock content %}
