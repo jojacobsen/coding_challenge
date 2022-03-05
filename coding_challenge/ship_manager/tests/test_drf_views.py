@@ -98,6 +98,38 @@ def test_create_ship(user: User, ship: Ship):
     assert Ship.objects.count() == 2
 
 
+def test_ship_serializer(user: User, ship: Ship):
+    """
+    Ensure we can create a new ship object.
+    """
+    client = APIClient()
+    url = reverse("api:ship-list")
+    token, created = Token.objects.get_or_create(user=user)
+    client.credentials(HTTP_AUTHORIZATION='Token ' + token.key)
+    # Test ship creating with valid data
+    data = {
+        'code': 'AAAA-1111-A9',
+        'name': 'test sheep',
+        'width': 31,
+        'length': 10,
+    }
+    response = client.post(url, data, format='json')
+    assert response.status_code == status.HTTP_201_CREATED
+    assert Ship.objects.count() == 2
+
+    # Test ship creating with duplicate but lowercase data
+    data['code'] = 'aaaa-1111-a9'
+    response = client.post(url, data, format='json')
+    assert response.status_code == status.HTTP_400_BAD_REQUEST
+
+    # Test ship creating with lowercase code that should get
+    # transformed into uppercase
+    data['code'] = 'aaaa-4444-a9'
+    response = client.post(url, data, format='json')
+    assert response.status_code == status.HTTP_201_CREATED
+    assert response.data['code'] == 'AAAA-4444-A9'
+
+
 def test_update_ship(user: User, ship: Ship):
     """
     Ensure we can update a ship object.

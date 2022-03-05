@@ -13,12 +13,11 @@ class ShipSerializer(serializers.ModelSerializer):
     # enforcing regex and unique validator
     # on code field
 
-    # TODO: Capitalize code string
     code = serializers.RegexField(regex=r"[a-zA-Z]{4}-[0-9]{4}-[a-zA-Z][0-9]$",
                                   help_text=_("Please provide following code structure: AAAA-1111-A1"),
                                   error_messages={'invalid': _(
                                       "Code does not meet following regex [a-zA-Z]{4}-[0-9]{4}-[a-zA-Z][0-9]$")},
-                                  validators=[UniqueValidator(queryset=Ship.objects.all())]
+                                  validators=[UniqueValidator(queryset=Ship.objects.all(), lookup='iexact')]
                                   )
     # Read Only for auto create fields
     created = serializers.DateTimeField(read_only=True)
@@ -33,3 +32,14 @@ class ShipSerializer(serializers.ModelSerializer):
         extra_kwargs = {
             "url": {"view_name": "api:ship-detail", "lookup_field": "code"}
         }
+
+    def create(self, validated_data):
+        # Make code string always upper case
+        validated_data['code'] = validated_data['code'].upper()
+        return super().create(validated_data)
+
+    def update(self, instance, validated_data):
+        # Make code string always upper case if available
+        if "code" in validated_data:
+            validated_data['code'] = validated_data['code'].upper()
+        return super().update(instance, validated_data)
