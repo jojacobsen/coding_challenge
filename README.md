@@ -125,7 +125,7 @@ The program code follows the folder structure below (the most important):
     │   │   ├── admin.py          # Admin interface configuration
     │   │   └── models.py         # Model definition
     │   ├── users/                # User application (strucure as above)
-    │   ├── template/             # Static templates
+    │   ├── templates/             # Static templates
     │   └── conftest.py           # Test configurations
     ├── config/                   # Superior project configuration
     │   ├── settings/             # Folder for django settings (local, production, test & base)
@@ -170,14 +170,14 @@ Authorization: Token 9944b09199c62bcf9418ad846dd0e4bbdfc6ee4b
 An alternative way to get your authentication token is via the API interface `/auth-token/`. The following request must
 be sent to obtain your token:
 
-    $ POST -H "Content-Type: application/json" \
+    $ curl -X POST -H "Content-Type: application/json" \
     -d '{"username": "myusername", "password": "mypassword"}' \
     http://0.0.0.0:8000/auth-token/
 
 The response looks as follows:
 
 ```  
-{"token":"9944b09199c62bcf9418ad846dd0e4bbdfc6ee4b"}% 
+{"token":"9944b09199c62bcf9418ad846dd0e4bbdfc6ee4b"}
 ```   
 ### Project Documentation
 
