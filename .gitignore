@@ -330,3 +330,4 @@ coding_challenge/media/
 .env
 .envs/*
 !.envs/.local/
+.coveralls.yml
