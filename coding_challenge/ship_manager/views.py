@@ -7,6 +7,7 @@ class ShipListView(ListView):
     Simple ListView to present all
     available lists on homepage.
     """
+
     model = Ship
     paginate_by = 100  # pagination
-    ordering = '-created'  # newest ship first
+    ordering = "-created"  # newest ship first

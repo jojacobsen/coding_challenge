@@ -18,7 +18,7 @@ def test_ship_view_auth(user: User, ship: Ship):
     client = APIClient()
     url = reverse("api:ship-list")
     data: dict = {}
-    response = client.post(url, data, format='json')
+    response = client.post(url, data, format="json")
     # Test unauthorized API call (get, post, delete, put)
     assert response.status_code == status.HTTP_403_FORBIDDEN
     response = client.get(url)
@@ -38,7 +38,7 @@ def test_list_ship(user: User, ship: Ship):
 
     client = APIClient()
     token, created = Token.objects.get_or_create(user=user)
-    client.credentials(HTTP_AUTHORIZATION='Token ' + token.key)
+    client.credentials(HTTP_AUTHORIZATION="Token " + token.key)
     url = reverse("api:ship-list")
     response = client.get(url)
     assert response.status_code == status.HTTP_200_OK
@@ -52,7 +52,7 @@ def test_detail_ship_view(user: User, ship: Ship):
 
     client = APIClient()
     token, created = Token.objects.get_or_create(user=user)
-    client.credentials(HTTP_AUTHORIZATION='Token ' + token.key)
+    client.credentials(HTTP_AUTHORIZATION="Token " + token.key)
     url = reverse("api:ship-detail", kwargs={"code": ship.code})
     response = client.get(url)
     assert response.status_code == status.HTTP_200_OK
@@ -68,32 +68,32 @@ def test_create_ship(user: User, ship: Ship):
     url = reverse("api:ship-list")
     data: dict = {}
     token, created = Token.objects.get_or_create(user=user)
-    client.credentials(HTTP_AUTHORIZATION='Token ' + token.key)
+    client.credentials(HTTP_AUTHORIZATION="Token " + token.key)
 
     # Call API with invalid data
-    response = client.post(url, data, format='json')
+    response = client.post(url, data, format="json")
     assert response.status_code == status.HTTP_400_BAD_REQUEST
 
     # Test ship creating with invalid code
     data = {
-        'code': 'test-ship',
-        'name': 'test-ship',
-        'width': 31,
-        'length': 10,
+        "code": "test-ship",
+        "name": "test-ship",
+        "width": 31,
+        "length": 10,
     }
-    response = client.post(url, data, format='json')
+    response = client.post(url, data, format="json")
     assert response.status_code == status.HTTP_400_BAD_REQUEST
-    assert 'code' in response.data
+    assert "code" in response.data
 
     # Test ship creating with no unique code
-    data['code'] = 'AAAA-1111-A1'
-    response = client.post(url, data, format='json')
+    data["code"] = "AAAA-1111-A1"
+    response = client.post(url, data, format="json")
     assert response.status_code == status.HTTP_400_BAD_REQUEST
-    assert 'code' in response.data
+    assert "code" in response.data
 
     # Test ship creating with valid data
-    data['code'] = 'AAAA-1111-A9'
-    response = client.post(url, data, format='json')
+    data["code"] = "AAAA-1111-A9"
+    response = client.post(url, data, format="json")
     assert response.status_code == status.HTTP_201_CREATED
     assert Ship.objects.count() == 2
 
@@ -105,29 +105,29 @@ def test_ship_serializer(user: User, ship: Ship):
     client = APIClient()
     url = reverse("api:ship-list")
     token, created = Token.objects.get_or_create(user=user)
-    client.credentials(HTTP_AUTHORIZATION='Token ' + token.key)
+    client.credentials(HTTP_AUTHORIZATION="Token " + token.key)
     # Test ship creating with valid data
     data = {
-        'code': 'AAAA-1111-A9',
-        'name': 'test sheep',
-        'width': 31,
-        'length': 10,
+        "code": "AAAA-1111-A9",
+        "name": "test sheep",
+        "width": 31,
+        "length": 10,
     }
-    response = client.post(url, data, format='json')
+    response = client.post(url, data, format="json")
     assert response.status_code == status.HTTP_201_CREATED
     assert Ship.objects.count() == 2
 
     # Test ship creating with duplicate but lowercase data
-    data['code'] = 'aaaa-1111-a9'
-    response = client.post(url, data, format='json')
+    data["code"] = "aaaa-1111-a9"
+    response = client.post(url, data, format="json")
     assert response.status_code == status.HTTP_400_BAD_REQUEST
 
     # Test ship creating with lowercase code that should get
     # transformed into uppercase
-    data['code'] = 'aaaa-4444-a9'
-    response = client.post(url, data, format='json')
+    data["code"] = "aaaa-4444-a9"
+    response = client.post(url, data, format="json")
     assert response.status_code == status.HTTP_201_CREATED
-    assert response.data['code'] == 'AAAA-4444-A9'
+    assert response.data["code"] == "AAAA-4444-A9"
 
 
 def test_update_ship(user: User, ship: Ship):
@@ -137,12 +137,12 @@ def test_update_ship(user: User, ship: Ship):
 
     client = APIClient()
     token, created = Token.objects.get_or_create(user=user)
-    client.credentials(HTTP_AUTHORIZATION='Token ' + token.key)
+    client.credentials(HTTP_AUTHORIZATION="Token " + token.key)
     url = reverse("api:ship-detail", kwargs={"code": ship.code})
-    response = client.patch(url, data={'name': 'Aida'})
+    response = client.patch(url, data={"name": "Aida"})
     assert response.status_code == status.HTTP_200_OK
     ship_instance = Ship.objects.get(code=ship.code)
-    assert ship_instance.name == 'Aida'
+    assert ship_instance.name == "Aida"
 
 
 def test_delete_ship(user: User, ship: Ship):
@@ -152,7 +152,7 @@ def test_delete_ship(user: User, ship: Ship):
 
     client = APIClient()
     token, created = Token.objects.get_or_create(user=user)
-    client.credentials(HTTP_AUTHORIZATION='Token ' + token.key)
+    client.credentials(HTTP_AUTHORIZATION="Token " + token.key)
     url = reverse("api:ship-detail", kwargs={"code": ship.code})
     response = client.delete(url)
     assert response.status_code == status.HTTP_204_NO_CONTENT

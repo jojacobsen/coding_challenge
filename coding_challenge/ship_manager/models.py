@@ -15,20 +15,35 @@ class Ship(models.Model):
     code: Unique String for vessel identification that must follow this regex: [A-Z]{4}-[0-9]{4}-[A-Z][0-9]$
           e.g. AAAA-1111-A1
     """
+
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
     name = models.CharField(_("Name of Ship"), max_length=255)
-    length = models.DecimalField(verbose_name=_("Length"), max_digits=5, decimal_places=2,
-                                 help_text=_("Ship length in meter"))
-    width = models.DecimalField(verbose_name=_("Width"), max_digits=5, decimal_places=2,
-                                help_text=_("Ship width in meter"))
-    code = models.CharField(_("Unique Ship Code"), max_length=12, unique=True,
-                            validators=[
-                                RegexValidator(
-                                    r"[A-Z]{4}-[0-9]{4}-[A-Z][0-9]$",
-                                    message=_("Code does not meet following regex [A-Z]{4}-[0-9]{4}-[A-Z][0-9]$")
-                                ),
-                            ])
+    length = models.DecimalField(
+        verbose_name=_("Length"),
+        max_digits=5,
+        decimal_places=2,
+        help_text=_("Ship length in meter"),
+    )
+    width = models.DecimalField(
+        verbose_name=_("Width"),
+        max_digits=5,
+        decimal_places=2,
+        help_text=_("Ship width in meter"),
+    )
+    code = models.CharField(
+        _("Unique Ship Code"),
+        max_length=12,
+        unique=True,
+        validators=[
+            RegexValidator(
+                r"[A-Z]{4}-[0-9]{4}-[A-Z][0-9]$",
+                message=_(
+                    "Code does not meet following regex [A-Z]{4}-[0-9]{4}-[A-Z][0-9]$"
+                ),
+            ),
+        ],
+    )
 
     def __str__(self):
         """

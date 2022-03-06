@@ -11,6 +11,7 @@ class ShipViewSet(viewsets.ModelViewSet):
     CRUD functionality is enabled for the Ship model.
     User Authentication is required.
     """
+
     queryset = Ship.objects.all()
     serializer_class = ShipSerializer
     permission_classes = [IsAuthenticated]

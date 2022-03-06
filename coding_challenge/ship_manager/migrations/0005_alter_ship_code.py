@@ -7,13 +7,23 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('ship_manager', '0004_auto_20220304_2146'),
+        ("ship_manager", "0004_auto_20220304_2146"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='ship',
-            name='code',
-            field=models.CharField(max_length=12, unique=True, validators=[django.core.validators.RegexValidator('[A-Z]{4}-[0-9]{4}-[A-Z][0-9]$', message='Code does not meet following regex [A-Z]{4}-[0-9]{4}-[A-Z][0-9]$')], verbose_name='Unique Ship Code'),
+            model_name="ship",
+            name="code",
+            field=models.CharField(
+                max_length=12,
+                unique=True,
+                validators=[
+                    django.core.validators.RegexValidator(
+                        "[A-Z]{4}-[0-9]{4}-[A-Z][0-9]$",
+                        message="Code does not meet following regex [A-Z]{4}-[0-9]{4}-[A-Z][0-9]$",
+                    )
+                ],
+                verbose_name="Unique Ship Code",
+            ),
         ),
     ]

@@ -8,18 +8,48 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='Ship',
+            name="Ship",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=255, verbose_name='Name of Ship')),
-                ('length', models.DecimalField(decimal_places=2, help_text='Ship length in meter', max_digits=5)),
-                ('width', models.DecimalField(decimal_places=2, help_text='Ship width in meter', max_digits=5)),
-                ('code', models.CharField(max_length=12, unique=True, validators=[django.core.validators.RegexValidator('[a-zA-Z]{4}-[0-9]{4}-[a-zA-Z][0-9]$', message='Code does not meet following regex [a-zA-Z]{4}-[0-9]{4}-[a-zA-Z][0-9]$')], verbose_name='Unique Ship Code')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("name", models.CharField(max_length=255, verbose_name="Name of Ship")),
+                (
+                    "length",
+                    models.DecimalField(
+                        decimal_places=2, help_text="Ship length in meter", max_digits=5
+                    ),
+                ),
+                (
+                    "width",
+                    models.DecimalField(
+                        decimal_places=2, help_text="Ship width in meter", max_digits=5
+                    ),
+                ),
+                (
+                    "code",
+                    models.CharField(
+                        max_length=12,
+                        unique=True,
+                        validators=[
+                            django.core.validators.RegexValidator(
+                                "[a-zA-Z]{4}-[0-9]{4}-[a-zA-Z][0-9]$",
+                                message="Code does not meet following regex [a-zA-Z]{4}-[0-9]{4}-[a-zA-Z][0-9]$",
+                            )
+                        ],
+                        verbose_name="Unique Ship Code",
+                    ),
+                ),
             ],
         ),
     ]

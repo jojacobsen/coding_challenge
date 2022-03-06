@@ -6,22 +6,32 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('ship_manager', '0001_initial'),
+        ("ship_manager", "0001_initial"),
     ]
 
     operations = [
         migrations.AlterModelOptions(
-            name='ship',
-            options={'verbose_name': 'Ship', 'verbose_name_plural': 'Ships'},
+            name="ship",
+            options={"verbose_name": "Ship", "verbose_name_plural": "Ships"},
         ),
         migrations.AlterField(
-            model_name='ship',
-            name='length',
-            field=models.DecimalField(decimal_places=2, help_text='Ship length in meter', max_digits=5, verbose_name='Length'),
+            model_name="ship",
+            name="length",
+            field=models.DecimalField(
+                decimal_places=2,
+                help_text="Ship length in meter",
+                max_digits=5,
+                verbose_name="Length",
+            ),
         ),
         migrations.AlterField(
-            model_name='ship',
-            name='width',
-            field=models.DecimalField(decimal_places=2, help_text='Ship width in meter', max_digits=5, verbose_name='Width'),
+            model_name="ship",
+            name="width",
+            field=models.DecimalField(
+                decimal_places=2,
+                help_text="Ship width in meter",
+                max_digits=5,
+                verbose_name="Width",
+            ),
         ),
     ]

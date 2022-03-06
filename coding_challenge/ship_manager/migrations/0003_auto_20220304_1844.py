@@ -7,20 +7,24 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('ship_manager', '0002_auto_20220304_1716'),
+        ("ship_manager", "0002_auto_20220304_1716"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='ship',
-            name='created',
-            field=models.DateTimeField(default=datetime.datetime(2022, 3, 4, 18, 44, 25, 737940)),
+            model_name="ship",
+            name="created",
+            field=models.DateTimeField(
+                default=datetime.datetime(2022, 3, 4, 18, 44, 25, 737940)
+            ),
             preserve_default=False,
         ),
         migrations.AddField(
-            model_name='ship',
-            name='updated',
-            field=models.DateTimeField(default=datetime.datetime(2022, 3, 4, 18, 44, 35, 54355)),
+            model_name="ship",
+            name="updated",
+            field=models.DateTimeField(
+                default=datetime.datetime(2022, 3, 4, 18, 44, 35, 54355)
+            ),
             preserve_default=False,
         ),
     ]

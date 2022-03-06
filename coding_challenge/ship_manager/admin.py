@@ -9,6 +9,7 @@ class ShipAdmin(admin.ModelAdmin):
     Register the Ship model within the admin interface,
     for easy maintenance and manual object creation.
     """
+
     list_display = ["code", "name", "length", "width"]
     search_fields = ["name", "code"]
     list_filter = ["length", "width"]

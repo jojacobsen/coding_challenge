@@ -18,12 +18,12 @@ def test_ship_object_creation(ship: Ship):
     """
     s = Ship(name="Queen Mary", code="ABCD-1111-A9", width=12.2, length=36.6)
     s.save()
-    ship_instance = Ship.objects.get(code='ABCD-1111-A9')
+    ship_instance = Ship.objects.get(code="ABCD-1111-A9")
     initial_update_time = ship_instance.updated
     initial_creation_time = ship_instance.created
-    assert ship_instance.name == 'Queen Mary'
+    assert ship_instance.name == "Queen Mary"
 
-    ship_instance.name = 'Queen Mary 2'
+    ship_instance.name = "Queen Mary 2"
     ship_instance.save()
     # Check if update time changes and creation time
     # stays the same on object update

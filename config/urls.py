@@ -15,7 +15,9 @@ urlpatterns = [
         "about/", TemplateView.as_view(template_name="pages/about.html"), name="about"
     ),
     path(
-        "api-info/", TemplateView.as_view(template_name="pages/api_info.html"), name="api-info"
+        "api-info/",
+        TemplateView.as_view(template_name="pages/api_info.html"),
+        name="api-info",
     ),
     # Django Admin, use {% url 'admin:index' %}
     path(settings.ADMIN_URL, admin.site.urls),
@@ -28,7 +30,7 @@ urlpatterns = [
 # API URLS
 urlpatterns += [
     # API base url
-    path("api/", include("config.api_router"), name='api-root'),
+    path("api/", include("config.api_router"), name="api-root"),
     # DRF auth token
     path("auth-token/", obtain_auth_token),
     path("api/schema/", SpectacularAPIView.as_view(), name="api-schema"),
