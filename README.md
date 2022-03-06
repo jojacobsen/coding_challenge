@@ -88,6 +88,8 @@ Run the server:
 
     $ python manage.py runserver 0.0.0.0:8000
 
+## General Project Usage  & Overview
+
 ### Accessing the Project
 
 You will find the landing page of the project here: http://0.0.0.0:8000/ (or in some cases http://localhost:8000)
