@@ -222,6 +222,12 @@ If you wish to perform Python commands (e.g. Database operations) with all the u
 
     $ python manage.py shell
 
+### Load Initial Ship Data
+
+To kickstart your project and directly have some data to play around with, there is a method to load initial ships. To do this, execute the following command: 
+
+    $ python manage.py loaddata ships
+
 ## Troubleshooting
 
 - [ ] Locally: Make sure to have the correct Python version all required Packages installed.

@@ -1,0 +1,146 @@
+[
+  {
+    "model": "ship_manager.ship",
+    "pk": 1,
+    "fields": {
+      "created": "2022-03-06T15:14:30.866Z",
+      "updated": "2022-03-06T15:14:30.866Z",
+      "name": "Queen Merry",
+      "length": "311.00",
+      "width": "42.00",
+      "code": "QMAB-3111-B2"
+    }
+  },
+  {
+    "model": "ship_manager.ship",
+    "pk": 2,
+    "fields": {
+      "created": "2022-03-06T15:14:30.866Z",
+      "updated": "2022-03-06T15:14:30.866Z",
+      "name": "Santa Maria",
+      "length": "121.00",
+      "width": "21.00",
+      "code": "SMAB-3111-C2"
+    }
+  },
+  {
+    "model": "ship_manager.ship",
+    "pk": 3,
+    "fields": {
+      "created": "2022-03-06T15:14:30.866Z",
+      "updated": "2022-03-06T15:14:30.866Z",
+      "name": "H.L. Hunley",
+      "length": "211.00",
+      "width": "28.00",
+      "code": "HLHB-3543-H2"
+    }
+  },
+  {
+    "model": "ship_manager.ship",
+    "pk": 4,
+    "fields": {
+      "created": "2022-03-06T14:14:30.866Z",
+      "updated": "2022-03-06T14:14:30.866Z",
+      "name": "Mayflower",
+      "length": "151.00",
+      "width": "31.00",
+      "code": "MFLB-3548-M5"
+    }
+  },
+  {
+    "model": "ship_manager.ship",
+    "pk": 5,
+    "fields": {
+      "created": "2022-03-06T14:14:30.866Z",
+      "updated": "2022-03-06T14:14:30.866Z",
+      "name": "USS Constitution",
+      "length": "191.00",
+      "width": "39.00",
+      "code": "USSC-5548-U9"
+    }
+  },
+  {
+    "model": "ship_manager.ship",
+    "pk": 6,
+    "fields": {
+      "created": "2022-03-06T13:14:30.866Z",
+      "updated": "2022-03-06T13:14:30.866Z",
+      "name": "Titanic",
+      "length": "269.00",
+      "width": "28.00",
+      "code": "TITA-1313-T3"
+    }
+  },
+  {
+    "model": "ship_manager.ship",
+    "pk": 7,
+    "fields": {
+      "created": "2022-03-06T13:14:30.866Z",
+      "updated": "2022-03-06T13:14:30.866Z",
+      "name": "Bismarck",
+      "length": "251.00",
+      "width": "36.00",
+      "code": "BISM-0505-B3"
+    }
+  },
+  {
+    "model": "ship_manager.ship",
+    "pk": 8,
+    "fields": {
+      "created": "2022-03-06T13:14:30.866Z",
+      "updated": "2022-03-06T13:14:30.866Z",
+      "name": "USS Maine",
+      "length": "251.00",
+      "width": "36.00",
+      "code": "USSM-0505-U3"
+    }
+  },
+  {
+    "model": "ship_manager.ship",
+    "pk": 8,
+    "fields": {
+      "created": "2022-03-06T13:14:30.866Z",
+      "updated": "2022-03-06T13:14:30.866Z",
+      "name": "HMS Victory",
+      "length": "251.00",
+      "width": "36.00",
+      "code": "HMSV-9539-H9"
+    }
+  },
+  {
+    "model": "ship_manager.ship",
+    "pk": 9,
+    "fields": {
+      "created": "2022-03-06T13:14:30.866Z",
+      "updated": "2022-03-06T13:14:30.866Z",
+      "name": "USS Missouri",
+      "length": "191.00",
+      "width": "30.00",
+      "code": "USSM-9539-U9"
+    }
+  },
+  {
+    "model": "ship_manager.ship",
+    "pk": 10,
+    "fields": {
+      "created": "2022-03-06T13:14:30.866Z",
+      "updated": "2022-03-06T13:14:30.866Z",
+      "name": "USS Arizona",
+      "length": "191.00",
+      "width": "30.00",
+      "code": "USSA-4539-U3"
+    }
+  },
+  {
+    "model": "ship_manager.ship",
+    "pk": 11,
+    "fields": {
+      "created": "2022-03-06T13:14:30.866Z",
+      "updated": "2022-03-06T13:14:30.866Z",
+      "name": "AIDAprima",
+      "length": "300.00",
+      "width": "38.00",
+      "code": "AIDA-4924-P9"
+    }
+  }
+]
