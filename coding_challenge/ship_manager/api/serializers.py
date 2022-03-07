@@ -11,7 +11,7 @@ class ShipSerializer(serializers.ModelSerializer):
     Ship Model representation
     """
 
-    # enforcing regex and unique validator
+    # enforcing regex and case-insensitive unique validator
     # on code field
 
     code = serializers.RegexField(
@@ -24,15 +24,13 @@ class ShipSerializer(serializers.ModelSerializer):
         },
         validators=[UniqueValidator(queryset=Ship.objects.all(), lookup="iexact")],
     )
-    # Read Only for auto create fields
-    created = serializers.DateTimeField(read_only=True)
-    updated = serializers.DateTimeField(read_only=True)
 
     class Meta:
         model = Ship
         # following fields are enabled in the ship serializer
         fields = ["name", "length", "width", "code", "url", "created", "updated"]
-
+        # Read Only for auto create fields
+        read_only_fields = ["created", "updated"]
         # add extra url field to create reverse path to ship object
         extra_kwargs = {"url": {"view_name": "api:ship-detail", "lookup_field": "code"}}
 

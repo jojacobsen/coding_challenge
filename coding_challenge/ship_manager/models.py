@@ -34,7 +34,7 @@ class Ship(models.Model):
     code = models.CharField(
         _("Unique Ship Code"),
         max_length=12,
-        unique=True,
+        primary_key=True,
         validators=[
             RegexValidator(
                 r"[A-Z]{4}-[0-9]{4}-[A-Z][0-9]$",
