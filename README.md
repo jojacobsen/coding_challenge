@@ -106,7 +106,7 @@ date first.
 
 These ships can be managed and created via a rest interface. Complex validation rules are enforced for the correctness
 of the use of this interface. For example, the `code` field must be unique in the database and must conform to the
-following regex `[a-zA-Z]{4}-[0-9]{4}-[a-zA-Z][0-9]$`. All `code` characters are stored uppercase in the database.
+following regex `[a-zA-Z]{4}-[0-9]{4}-[a-zA-Z][0-9]$`. All `code` characters are stored as uppercase in the database.
 
 Furthermore, this project includes an interface for managing the user database.
 
@@ -124,8 +124,8 @@ The program code follows the folder structure below (the most important):
     │   │   ├── views/            # Non-API views
     │   │   ├── admin.py          # Admin interface configuration
     │   │   └── models.py         # Model definition
-    │   ├── users/                # User application (strucure as above)
-    │   ├── templates/             # Static templates
+    │   ├── users/                # User application (structure as above)
+    │   ├── templates/            # Static templates
     │   └── conftest.py           # Test configurations
     ├── config/                   # Superior project configuration
     │   ├── settings/             # Folder for django settings (local, production, test & base)

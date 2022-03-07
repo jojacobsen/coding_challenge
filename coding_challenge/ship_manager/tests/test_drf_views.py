@@ -129,6 +129,13 @@ def test_ship_serializer(user: User, ship: Ship):
     assert response.status_code == status.HTTP_201_CREATED
     assert response.data["code"] == "AAAA-4444-A9"
 
+    # Test ship updating with lowercase code that should get
+    # transformed into uppercase
+    url = reverse("api:ship-detail", kwargs={"code": ship.code})
+    response = client.patch(url, data={"code": "bbbb-4444-a9"})
+    assert response.status_code == status.HTTP_200_OK
+    assert response.data["code"] == "BBBB-4444-A9"
+
 
 def test_update_ship(user: User, ship: Ship):
     """

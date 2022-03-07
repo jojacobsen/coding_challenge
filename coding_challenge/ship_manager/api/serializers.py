@@ -36,13 +36,6 @@ class ShipSerializer(serializers.ModelSerializer):
         # add extra url field to create reverse path to ship object
         extra_kwargs = {"url": {"view_name": "api:ship-detail", "lookup_field": "code"}}
 
-    def create(self, validated_data):
+    def validate_code(self, value):
         # Make code string always upper case
-        validated_data["code"] = validated_data["code"].upper()
-        return super().create(validated_data)
-
-    def update(self, instance, validated_data):
-        # Make code string always upper case if available
-        if "code" in validated_data:
-            validated_data["code"] = validated_data["code"].upper()
-        return super().update(instance, validated_data)
+        return value.upper()
